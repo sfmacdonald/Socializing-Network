@@ -4,12 +4,18 @@ const Joi = require('joi');
 
 // Define schema for thought creation payload
 const thoughtSchema = Joi.object({
-  // Define your schema fields here
+  thoughtText: Joi.string().required(),
+  username: Joi.string().required(),
+  userId: Joi.string().required(),
 });
 
 // Middleware to validate thought creation payload using Joi schema
 function validateThought(req, res, next) {
-  // Validate thought payload against schema
+  const { error } = thoughtSchema.validate(req.body);
+  if (error) {
+    return res.status(400).json({ message: error.details[0].message });
+  }
+  next();
 }
 
 // GET all thoughts
