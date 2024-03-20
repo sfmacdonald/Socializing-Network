@@ -4,7 +4,9 @@
   "description": "NoSQL API for a social network",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index",
+    "seed": "node utils/seed"
   },
   "keywords": [
     "NoSQL",

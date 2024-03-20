@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User } = require('../models/User');
+const { User } = require('../../models/User');
 const Joi = require('joi');
 
 // Define schema for user creation payload
@@ -13,7 +13,7 @@ const userSchema = Joi.object({
 function validateUser(req, res, next) {
   const { error } = userSchema.validate(req.body);
   if (error) {
-      return res.status(400).json({ message: error.details[0].message });
+    return res.status(400).json({ message: error.details[0].message });
   }
   next();
 }
