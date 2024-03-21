@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User } = require('../../models/User');
+const { User } = require('../models/User');
 const Joi = require('joi');
 
 // Define schema for user creation payload
@@ -23,7 +23,7 @@ router.get('/', async (req, res) => {
   try {
     console.log("GET /api/users - Fetching all users");
     const users = await User.find().populate('thoughts').populate('friends');
-    console.log("GET /api/users - Users fetched successfully");
+    console.log("GET /api/users - Users fetched successfully", users);
     res.json(users);
   } catch (err) {
     console.error("GET /api/users - Error:", err);

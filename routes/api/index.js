@@ -1,5 +1,4 @@
 const router = require('express').Router();
-const { Thought } = require('../../models');
 const appRoutes = require('./thoughtRoutes');
 const userRoutes = require('./userRoutes');
 
