@@ -49,7 +49,7 @@ router.get('/:thoughtId', async (req, res) => {
 });
 
 // POST to create a new thought
-router.post('/', async (req, res) => {
+router.post('/', validateThought, async (req, res) => {
   try {
     console.log("POST /api/thoughts - Creating a new thought");
     const thought = await Thought.create(req.body);
@@ -141,7 +141,8 @@ router.delete('/:thoughtId/reactions/:reactionId', async (req, res) => {
       reaction => reaction.reactionId.toString() !== req.params.reactionId
     );
     const updatedThought = await thought.save();
-    console.log(`DELETE /api/thoughts/${req.params.thoughtId}/reactions/${req.params.reactionId} - Reaction removed successfully`);
+    console.log(`DELETE /api/thoughts/${req.params.thoughtId}/
+    reactions/${req.params.reactionId} - Reaction removed successfully`);
     res.json(updatedThought);
   } catch (err) {
     console.error(`DELETE /api/thoughts/${req.params.thoughtId}/reactions/${req.params.reactionId} - Error:`, err);

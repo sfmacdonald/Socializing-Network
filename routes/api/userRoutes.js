@@ -51,7 +51,7 @@ router.get('/:userId', async (req, res) => {
 });
 
 // POST a new user
-router.post('/', async (req, res) => {
+router.post('/', validateUser, async (req, res) => {
   try {
     console.log("POST /api/users - Creating a new user");
     const user = await User.create(req.body);
