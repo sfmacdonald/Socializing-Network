@@ -21,7 +21,8 @@ const userSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User'
   }]
-}, {
+}, 
+{
   toJSON: {
     virtuals: true,
     getters: true
@@ -34,6 +35,7 @@ userSchema.virtual('friendCount').get(function() {
   return this.friends.length;
 });
 
+// Initialize User model
 const User = mongoose.model('User', userSchema);
 
 module.exports = User;
