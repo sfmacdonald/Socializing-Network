@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User } = require('../models/User');
+const User = require('../models/User');
 const Joi = require('joi');
 
 // Define schema for user creation payload
@@ -54,6 +54,7 @@ router.get('/:userId', async (req, res) => {
 router.post('/', validateUser, async (req, res) => {
   try {
     console.log("POST /api/users - Creating a new user");
+    // Use the sample user payload
     const user = await User.create(req.body);
     console.log("POST /api/users - User created successfully");
     res.status(201).json(user);
