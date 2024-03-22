@@ -1,0 +1,15 @@
+http://localhost:3005/api/users
+
+{
+	"username": "myuser123",
+  "email": "seanfmacdonald@icloud.com",
+  "password": "password123"
+}
+
+
+http://localhost:3005/api/thoughts
+{
+  "thoughtText": "This is my thought.",
+  "username": "myuser123",
+  "userId": "65fd01467f103a1c64dfee59"
+}

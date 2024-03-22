@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Thought, User } = require('../models/Thought');
+const Thought = require('../models/Thought');
 const Joi = require('joi');
 
 // Define schema for thought creation payload
