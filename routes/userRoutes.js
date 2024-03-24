@@ -102,4 +102,56 @@ router.delete('/:userId', async (req, res) => {
   }
 });
 
+// POST to add a friend to a user's friend list
+router.post('/:userId/friends', async (req, res) => {
+  try {
+    console.log(`POST /api/users/${req.params.userId}/friends - Adding friend to user id: ${req.params.userId}`);
+    const user = await User.findById(req.params.userId);
+    if (!user) {
+      res.status(404).json({ message: 'User not found' });
+      return;
+    }
+    const { friendId } = req.body;
+    if (!friendId) {
+      res.status(400).json({ message: 'FriendId is required' });
+      return;
+    }
+    if (user.friends.includes(friendId)) {
+      res.status(400).json({ message: 'User is already a friend' });
+      return;
+    }
+    user.friends.push(friendId);
+    await user.save();
+    console.log(`POST /api/users/${req.params.userId}/friends - Friend added successfully`);
+    res.status(201).json(user);
+  } catch (err) {
+    console.error(`POST /api/users/${req.params.userId}/friends - Error:`, err);
+    res.status(500).json(err);
+  }
+});
+
+// DELETE to remove a friend from a user's friend list
+router.delete('/:userId/friends/:friendId', async (req, res) => {
+  try {
+    console.log(`DELETE /api/users/${req.params.userId}/friends/${req.params.friendId} - Removing friend from user id: ${req.params.userId}`);
+    const user = await User.findById(req.params.userId);
+    if (!user) {
+      res.status(404).json({ message: 'User not found' });
+      return;
+    }
+    const { friendId } = req.params;
+    if (!user.friends.includes(friendId)) {
+      res.status(400).json({ message: 'User is not a friend' });
+      return;
+    }
+    user.friends = user.friends.filter(friend => friend !== friendId);
+    await user.save();
+    console.log(`DELETE /api/users/${req.params.userId}/friends/${req.params.friendId} - Friend removed successfully`);
+    res.json(user);
+  } catch (err) {
+    console.error(`DELETE /api/users/${req.params.userId}/friends/${req.params.friendId} - Error:`, err);
+    res.status(500).json(err);
+  }
+});
+
 module.exports = router;

@@ -42,26 +42,3 @@ Delete:
 http://localhost:3005/api/thoughts/:thoughtId/reactions/:reactionId
 
 
-
-
-
-[
-	{
-		"_id": "65fdedd3bf8d1479fba86144",
-		"username": "myuser123",
-		"email": "seanfmacdonald@icloud.com",
-		"thoughts": [],
-		"friends": [],
-		"__v": 0,
-		"friendCount": 0
-	},
-	{
-		"_id": "65fdf269bf8d1479fba86150",
-		"username": "myuser345",
-		"email": "email@hotmail.com",
-		"thoughts": [],
-		"friends": [],
-		"__v": 0,
-		"friendCount": 0
-	}
-]
