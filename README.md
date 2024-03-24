@@ -56,8 +56,8 @@ Testing may be accomplished manually by:
     - Utilizing Insomnia,input http://localhost:3005/api/users into the address bar and select "POST" from the dropdown menu.
     - In the JSON, include the following data:
         {
-	    "username": "example_user",
-        "email": "user@example.com",
+        "username": "john_doe",
+        "email": "john.doe@example.com",
         "password": "password123"
         }
     - Send this as a "POST" request to /api/users route.

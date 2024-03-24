@@ -1,44 +1,38 @@
-Test Users:
-http://localhost:3005/api/users
+For User Actions:
+- Get all users: GET /api/users
+- Get a single user by ID: GET /api/users/:userId
+- Create a new user: POST /api/users
+    - body: JSON representing the user to be added:
+        {
+        "username": "john_doe",
+        "email": "john.doe@example.com",
+        "password": "password123"
+        }
+- Update a user by ID: PUT /api/users/:userId
+- Delete a user by ID: DELETE /api/users/:userId
+- Add a friend to a user's friend list: POST /api/users/:userId/friends
+    - body: JSON representing the user to add as friend:
+        {
+        "friendId": "65fdf269bf8d1479fba86150"
+        }
+- Remove a friend from a user's friend list: DELETE /api/users/:userId/friends/:friendId
 
-JSON:
-{
-	"username": "myuser123",
-  "email": "seanfmacdonald@icloud.com",
-  "password": "password123"
-}
-
-Test Thoughts:
-http://localhost:3005/api/thoughts
-
-JSON:
-{
-  "thoughtText": "This is my thought.",
-  "username": "myuser123",
-  "userId": "65fd01467f103a1c64dfee59"
-}
-
-POST Friends:
-http://localhost:3005/api/users/:userId/friends
-{
-  "friendId": "65fdf269bf8d1479fba86150"
-}
-
-Delete Friends:
-http://localhost:3005/api/users/:userId/friends/:friendId
-
-
-
-
-POST Reactions:
-http://localhost:3005/api/thoughts/:thoughtId/reactions
-
-{
-  "reactionType": "like",
-  "userId": "607f1f77bcf86cd799439011"
-}
-
-Delete:
-http://localhost:3005/api/thoughts/:thoughtId/reactions/:reactionId
-
-
+For Thought Actions:
+- Get all thoughts: GET /api/thoughts
+- Get a single thought by ID: GET /api/thoughts/:thoughtId
+- Create a new thought: POST /api/thoughts
+    - body: JSON representing the user's thought to be added:
+        {
+        "thoughtText": "This is a new thought.",
+        "username": "john_doe",
+        "userId": "65fdedd3bf8d1479fba86144"
+        }
+- Update a thought by ID: PUT /api/thoughts/:thoughtId
+- Delete a thought by ID: DELETE /api/thoughts/:thoughtId
+- Add a reaction to a thought: POST /api/thoughts/:thoughtId/reactions
+    - body: JSON representing the reaction to be added:
+        {
+        "reactionBody": "Wow, this thought is amazing!",
+        "username": "jane_smith"
+        }
+- Remove a reaction from a thought: DELETE /api/thoughts/:thoughtId/reactions/:reactionId
