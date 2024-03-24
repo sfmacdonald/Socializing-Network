@@ -13,7 +13,7 @@ For User Actions:
 - Add a friend to a user's friend list: POST /api/users/:userId/friends
     - body: JSON representing the user to add as friend:
         {
-        "friendId": "65fdf269bf8d1479fba86150"
+        "friendId": ""
         }
 - Remove a friend from a user's friend list: DELETE /api/users/:userId/friends/:friendId
 
@@ -25,7 +25,7 @@ For Thought Actions:
         {
         "thoughtText": "This is a new thought.",
         "username": "john_doe",
-        "userId": "65fdedd3bf8d1479fba86144"
+        "userId": ""
         }
 - Update a thought by ID: PUT /api/thoughts/:thoughtId
 - Delete a thought by ID: DELETE /api/thoughts/:thoughtId
