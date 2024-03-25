@@ -46,7 +46,7 @@ This appllication has the following features and functions:
 
 The github repository may be found at https://github.com/sfmacdonald/Socializing-Network
 
-See attached screenrecording for demonstration:
+See attached screenrecording for demonstration: https://drive.google.com/file/d/1SXniqZNj4WnUKYxkL-5__hO79mzD25p7/view
 
 ## Testing
 
